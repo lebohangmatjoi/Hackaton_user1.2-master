@@ -105,6 +105,23 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
                 dia_name.setText(listImage.get(position).getPlaceName());
 
                 builder.setView(dialogView);
+
+
+                dialogView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getContext(), max_pic.class);
+
+                        String pic = listImage.get(position).getUrI();
+
+                        intent.putExtra("pic",pic);
+
+
+
+                        context.startActivity(intent);
+
+                    }
+                });
                 final AlertDialog alertDialog = builder.create();
 
 
